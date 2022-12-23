@@ -5,7 +5,6 @@ import { deleteBook } from "./BookSlice";
 
 const ShowBooks = () => {
   const books = useSelector((state) => state.bookReducer.books);
-  console.log(books);
 
   const dispatch = useDispatch();
 
