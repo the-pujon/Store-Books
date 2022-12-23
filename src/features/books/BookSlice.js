@@ -20,10 +20,15 @@ export const BooksSlice = createSlice({
     updateBook: (state, action) => {
       const { id, title, author } = action.payload;
       const existBook = state.books.filter((book) => book.id === id);
-      if (existBook) {
-        state.books[existBook[0].id - 1].title = title;
-        state.books[existBook[0].id - 1].author = author;
+      const bookId = existBook[0].id;
+
+      for (let i = 0; i < state.books.length; i++) {
+        if (state.books[i].id === bookId) {
+          state.books[i].title = title;
+          state.books[i].author = author;
+        }
       }
+
       localStorage.setItem("initBooks", JSON.stringify(state.books));
     },
     deleteBook: (state, action) => {
