@@ -27,11 +27,11 @@ const ShowBooks = () => {
         </thead>
         <tbody>
           {books &&
-            books.map((book) => {
+            books.map((book, index) => {
               const { id, title, author } = book;
               return (
                 <tr key={id}>
-                  <td>{id}</td>
+                  <td>{index + 1}</td>
                   <td>{title}</td>
                   <td>{author}</td>
                   <td>
